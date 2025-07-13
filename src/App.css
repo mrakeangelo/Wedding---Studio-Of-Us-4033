@@ -1,0 +1,108 @@
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a5d7a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7c94;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: #2c2c2c;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #6b7c94;
+}
+
+/* Brush texture overlay */
+.brush-texture {
+  position: relative;
+  overflow: hidden;
+}
+
+.brush-texture::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M0,0 Q25,10 50,0 Q75,10 100,0 L100,10 Q75,20 50,10 Q25,20 0,10 Z' fill='%23ffffff' opacity='0.1'/%3E%3C/svg%3E") repeat;
+  pointer-events: none;
+}
+
+/* Sketch animation */
+.sketch-line {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: sketch-draw 2s ease-in-out forwards;
+}
+
+@keyframes sketch-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Paper texture */
+.paper-texture {
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+/* Tape effect */
+.tape-corner {
+  position: relative;
+}
+
+.tape-corner::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 40px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transform: rotate(45deg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Grid overlay */
+.grid-overlay {
+  background-image: 
+    linear-gradient(rgba(74, 93, 122, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 93, 122, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection styling */
+::selection {
+  background: #4a5d7a;
+  color: white;
+}
+
+/* Focus styles */
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid #4a5d7a;
+  outline-offset: 2px;
+}
